@@ -24,11 +24,11 @@ public class SubPartCategory {
     private String subPartCategoryName;
 
     @ManyToOne
-    @JoinColumn(name = "main_part_category_id" ,nullable = false)
+    @JoinColumn(name = "main_part_category_id", nullable = false)
     private MainPartCategory mainPartCategory;
 
     @Builder.Default
-    @OneToMany( mappedBy = "subPartCategory",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "subPartCategory", cascade = CascadeType.ALL)
     private Set<Part> parts = new HashSet<>();
 
 }

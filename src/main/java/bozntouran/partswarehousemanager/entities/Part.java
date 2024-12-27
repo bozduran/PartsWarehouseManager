@@ -45,7 +45,7 @@ public class Part {
     private Integer version;
 
     @CreationTimestamp
-    @Column(updatable = false , name = "created_date")
+    @Column(updatable = false, name = "created_date")
     private LocalDateTime createdDate;
 
     @UpdateTimestamp
@@ -53,7 +53,7 @@ public class Part {
     private LocalDateTime updateDate;
 
     @ManyToOne()
-    @JoinColumn(name = "car_model_id", nullable = false  )
+    @JoinColumn(name = "car_model_id", nullable = false)
     private CarModel carModel;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -61,7 +61,7 @@ public class Part {
     private CarBrand carBrand;
 
     @ManyToOne
-    @JoinColumn(name = "sub_part_category_id" , nullable = false)
+    @JoinColumn(name = "sub_part_category_id", nullable = false)
     private SubPartCategory subPartCategory;
 
     @ManyToOne(fetch = FetchType.LAZY)

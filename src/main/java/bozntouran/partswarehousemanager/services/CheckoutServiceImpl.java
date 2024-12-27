@@ -46,7 +46,7 @@ public class CheckoutServiceImpl implements CheckoutService {
         PurchaseResponse purchaseResponse = new PurchaseResponse(UUID.randomUUID().toString());
         order.setOrderTrackingId(purchaseResponse.getPurchaseId());
 
-        Customer customer = customerRepository.getCustomersByEmail(
+        Customer customer = customerRepository.findByEmail(
                 purchase.getCustomer().getEmail());
         if (customer == null) {
             //      get the customer and add the order

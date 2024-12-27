@@ -3,7 +3,6 @@ package bozntouran.partswarehousemanager.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity

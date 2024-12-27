@@ -7,15 +7,11 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @Getter
@@ -56,7 +52,7 @@ public class CarModel {
     private String carType;
 
     @CreationTimestamp
-    @Column(name = "created_date",updatable = false)
+    @Column(name = "created_date", updatable = false)
     private LocalDateTime createdDate;
 
     @UpdateTimestamp
@@ -66,13 +62,13 @@ public class CarModel {
     @ManyToOne()
     private CarBrand carBrand;
 
-    public void setCarBrand(CarBrand carBrand){
-        this.carBrand  = carBrand;
+    public void setCarBrand(CarBrand carBrand) {
+        this.carBrand = carBrand;
         carBrand.getModels().add(this);
     }
 
     @Builder.Default
-    @OneToMany( mappedBy = "carModel",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "carModel", cascade = CascadeType.ALL)
     private Set<Part> parts = new HashSet<>();
 
 

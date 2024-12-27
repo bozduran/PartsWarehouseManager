@@ -4,9 +4,11 @@ import bozntouran.partswarehousemanager.dto.Purchase;
 import bozntouran.partswarehousemanager.dto.PurchaseResponse;
 import bozntouran.partswarehousemanager.services.CheckoutService;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
@@ -19,10 +21,9 @@ public class CheckoutController {
     private static final String PURCHASE_URL = "/purchase";
 
     @PostMapping(PURCHASE_URL)
-//    @CrossOrigin("http://localhost:4200")
-    public PurchaseResponse placeOrder(@RequestBody Purchase purchase){
+    public PurchaseResponse placeOrder(@RequestBody Purchase purchase) {
         PurchaseResponse response = checkoutService.placeOrder(purchase);
-        log.warn("Place order:{}",response.toString());
+        log.warn("Place order:{}", response.toString());
         log.info("Place order response: {}", response);
         System.out.println("Place order response: " + response.getPurchaseId());
         return response;

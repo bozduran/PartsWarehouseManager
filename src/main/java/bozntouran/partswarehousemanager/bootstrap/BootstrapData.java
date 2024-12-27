@@ -23,7 +23,6 @@ public class BootstrapData implements CommandLineRunner {
     private final PartRepository partRepository;
 
 
-
     @Override
     @Transactional
     public void run(String... args) throws Exception {
@@ -36,16 +35,16 @@ public class BootstrapData implements CommandLineRunner {
     }
 
     @Transactional
-    public void loadData(){
+    public void loadData() {
         Random random = new Random();
         random.setSeed(System.currentTimeMillis());
 
-        for (int i =0; i < 100;i++){
+        for (int i = 0; i < 100; i++) {
 
-            CarModel carModel = carModelRepository.getCarModelById( random.nextLong( carModelRepository.count()));
+            CarModel carModel = carModelRepository.getCarModelById(random.nextLong(carModelRepository.count()));
             CarBrand carBrand = carModel.getCarBrand();
 
-            SubPartCategory subPartCategory = subPartCategoryRepository.getSubPartCategoryById(random.nextLong( 1,110));
+            SubPartCategory subPartCategory = subPartCategoryRepository.getSubPartCategoryById(random.nextLong(1, 110));
             MainPartCategory mainPartCategory = subPartCategory.getMainPartCategory();
 
             int integerPart = random.nextInt(9000) + 10;

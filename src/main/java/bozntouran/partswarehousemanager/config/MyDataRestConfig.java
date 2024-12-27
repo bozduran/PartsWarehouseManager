@@ -1,7 +1,7 @@
 package bozntouran.partswarehousemanager.config;
 
-import bozntouran.partswarehousemanager.entities.*;
-
+import bozntouran.partswarehousemanager.entities.CarBrand;
+import bozntouran.partswarehousemanager.entities.CarModel;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.metamodel.EntityType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +35,8 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 
         HttpMethod[] theUnsupportedActions = {HttpMethod.PUT, HttpMethod.POST, HttpMethod.DELETE, HttpMethod.PATCH};
 
-        disableHttpMethods(CarBrand.class ,config ,theUnsupportedActions);
-        disableHttpMethods(CarModel.class ,config ,theUnsupportedActions);
+        disableHttpMethods(CarBrand.class, config, theUnsupportedActions);
+        disableHttpMethods(CarModel.class, config, theUnsupportedActions);
 
         config.getExposureConfiguration()
                 .forDomainType(CarBrand.class)
@@ -51,7 +51,7 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 
     }
 
-    private void disableHttpMethods(Class theClass, RepositoryRestConfiguration config, HttpMethod[] theUnsupportedActions){
+    private void disableHttpMethods(Class theClass, RepositoryRestConfiguration config, HttpMethod[] theUnsupportedActions) {
         // disable HTTP methods : PUT, POST, DELETE and PATCH
         config.getExposureConfiguration()
                 .forDomainType(theClass)

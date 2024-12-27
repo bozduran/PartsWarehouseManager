@@ -27,7 +27,7 @@ public class OrderItem {
     @Column(name = "unit_price")
     private BigDecimal unitPrice;
 
-    @Column(name ="part_id")
+    @Column(name = "part_id")
     private Long partId;
 
     @ManyToOne
