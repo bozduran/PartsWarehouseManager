@@ -534,3 +534,41 @@
 2024-12-27T17:50:19.201+02:00  INFO 6704 --- [PartsWarehouseManager] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-12-27T17:50:19.203+02:00  INFO 6704 --- [PartsWarehouseManager] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-12-27T17:50:19.210+02:00  INFO 6704 --- [PartsWarehouseManager] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-27T17:50:22.875+02:00  INFO 26432 --- [PartsWarehouseManager] [main] b.p.PartsWarehouseManagerApplication     : Starting PartsWarehouseManagerApplication using Java 17.0.12 with PID 26432 (C:\Users\duris\IdeaProjects\PartsWarehouseManager\target\classes started by duris in C:\Users\duris\IdeaProjects\PartsWarehouseManager)
+2024-12-27T17:50:22.877+02:00  INFO 26432 --- [PartsWarehouseManager] [main] b.p.PartsWarehouseManagerApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-27T17:50:23.515+02:00  INFO 26432 --- [PartsWarehouseManager] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-27T17:50:23.568+02:00  INFO 26432 --- [PartsWarehouseManager] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 11 JPA repository interfaces.
+2024-12-27T17:50:24.074+02:00  INFO 26432 --- [PartsWarehouseManager] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-27T17:50:24.083+02:00  INFO 26432 --- [PartsWarehouseManager] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-27T17:50:24.084+02:00  INFO 26432 --- [PartsWarehouseManager] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-27T17:50:24.128+02:00  INFO 26432 --- [PartsWarehouseManager] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-27T17:50:24.128+02:00  INFO 26432 --- [PartsWarehouseManager] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1222 ms
+2024-12-27T17:50:24.257+02:00 DEBUG 26432 --- [PartsWarehouseManager] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-12-27T17:50:24.355+02:00  INFO 26432 --- [PartsWarehouseManager] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-27T17:50:24.391+02:00  INFO 26432 --- [PartsWarehouseManager] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-27T17:50:24.414+02:00  INFO 26432 --- [PartsWarehouseManager] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-27T17:50:24.616+02:00  INFO 26432 --- [PartsWarehouseManager] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-27T17:50:24.636+02:00  INFO 26432 --- [PartsWarehouseManager] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-27T17:50:24.845+02:00  INFO 26432 --- [PartsWarehouseManager] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6843fdc4
+2024-12-27T17:50:24.846+02:00  INFO 26432 --- [PartsWarehouseManager] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-27T17:50:24.883+02:00  WARN 26432 --- [PartsWarehouseManager] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-27T17:50:25.700+02:00  INFO 26432 --- [PartsWarehouseManager] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-27T17:50:25.734+02:00  INFO 26432 --- [PartsWarehouseManager] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-27T17:50:26.362+02:00 DEBUG 26432 --- [PartsWarehouseManager] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 4 mappings in 'requestMappingHandlerMapping'
+2024-12-27T17:50:26.458+02:00 DEBUG 26432 --- [PartsWarehouseManager] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-12-27T17:50:26.492+02:00 DEBUG 26432 --- [PartsWarehouseManager] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-12-27T17:50:26.524+02:00 DEBUG 26432 --- [PartsWarehouseManager] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-12-27T17:50:26.552+02:00 DEBUG 26432 --- [PartsWarehouseManager] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 0 ResponseBodyAdvice
+2024-12-27T17:50:26.925+02:00  INFO 26432 --- [PartsWarehouseManager] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2024-12-27T17:50:26.987+02:00  INFO 26432 --- [PartsWarehouseManager] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-27T17:50:27.000+02:00  INFO 26432 --- [PartsWarehouseManager] [main] b.p.PartsWarehouseManagerApplication     : Started PartsWarehouseManagerApplication in 4.425 seconds (process running for 4.818)
+2024-12-27T17:50:27.010+02:00  INFO 26432 --- [PartsWarehouseManager] [main] b.p.bootstrap.BootstrapData              : Starting bootstrap data
+2024-12-27T17:50:27.390+02:00  INFO 26432 --- [PartsWarehouseManager] [RMI TCP Connection(4)-192.168.1.9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-27T17:50:27.390+02:00  INFO 26432 --- [PartsWarehouseManager] [RMI TCP Connection(4)-192.168.1.9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-27T17:50:27.390+02:00 DEBUG 26432 --- [PartsWarehouseManager] [RMI TCP Connection(4)-192.168.1.9] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-12-27T17:50:27.390+02:00 DEBUG 26432 --- [PartsWarehouseManager] [RMI TCP Connection(4)-192.168.1.9] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-12-27T17:50:27.390+02:00 DEBUG 26432 --- [PartsWarehouseManager] [RMI TCP Connection(4)-192.168.1.9] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-12-27T17:50:27.391+02:00 DEBUG 26432 --- [PartsWarehouseManager] [RMI TCP Connection(4)-192.168.1.9] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7d593bbc
+2024-12-27T17:50:27.392+02:00 DEBUG 26432 --- [PartsWarehouseManager] [RMI TCP Connection(4)-192.168.1.9] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@17abef0f
+2024-12-27T17:50:27.392+02:00 DEBUG 26432 --- [PartsWarehouseManager] [RMI TCP Connection(4)-192.168.1.9] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-12-27T17:50:27.392+02:00  INFO 26432 --- [PartsWarehouseManager] [RMI TCP Connection(4)-192.168.1.9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
