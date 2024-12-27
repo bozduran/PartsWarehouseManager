@@ -20,7 +20,7 @@ public class CarBrandController {
     public final CarBrandService carBrandService;
 
     @GetMapping(CAR_BRAND_SEARCH)
-    @CrossOrigin("http://localhost:4200")
+//    @CrossOrigin("http://localhost:4200")
     public Page<CarBrand> getCarBrands(@RequestParam(required = false) Long id,
                                        @RequestParam(required = false) String carBrandName,
                                        @RequestParam(required = false) String countryOfOrigin,

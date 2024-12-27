@@ -32,6 +32,10 @@ public class Part {
     private String partDescription;
 
     @NotNull
+    @Column(name = "unit_price")
+    private double price;
+
+    @NotNull
     @NotBlank
     @Column(name = "vin_number")
     private String vinNumber;
@@ -48,10 +52,20 @@ public class Part {
     @Column(name = "update_date")
     private LocalDateTime updateDate;
 
-    @ManyToOne
+    @ManyToOne()
+    @JoinColumn(name = "car_model_id", nullable = false  )
     private CarModel carModel;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "car_brand_id", nullable = false)
+    private CarBrand carBrand;
+
     @ManyToOne
-/*    @JoinColumn(name = "sub_part_category_id" ,nullable = false)*/
+    @JoinColumn(name = "sub_part_category_id" , nullable = false)
     private SubPartCategory subPartCategory;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "main_part_category_id", nullable = false)
+    private MainPartCategory mainPartCategory;
+
 }

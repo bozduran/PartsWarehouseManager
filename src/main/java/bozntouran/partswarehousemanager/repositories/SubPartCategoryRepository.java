@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin("http://localhost:4200")
+//@CrossOrigin("http://localhost:4200")
 public interface SubPartCategoryRepository extends JpaRepository<SubPartCategory, Long> {
     List<SubPartCategory> getSubPartCategoriesByMainPartCategory_Id(@Param("id") Long mainPartCategoryId);
     SubPartCategory getSubPartCategoryById(Long id);

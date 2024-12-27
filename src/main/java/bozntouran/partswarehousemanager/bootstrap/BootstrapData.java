@@ -4,14 +4,14 @@ import bozntouran.partswarehousemanager.entities.*;
 import bozntouran.partswarehousemanager.repositories.*;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.Random;
 import java.util.UUID;
 
+@Slf4j
 @Component
 @AllArgsConstructor
 public class BootstrapData implements CommandLineRunner {
@@ -27,6 +27,8 @@ public class BootstrapData implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... args) throws Exception {
+
+        log.info("Starting bootstrap data");
         if (partRepository.count() == 0) {
             loadData();
         }
@@ -37,42 +39,33 @@ public class BootstrapData implements CommandLineRunner {
     public void loadData(){
         Random random = new Random();
         random.setSeed(System.currentTimeMillis());
-        for (int i =0; i < 1000;i++){
+
+        for (int i =0; i < 100;i++){
 
             CarModel carModel = carModelRepository.getCarModelById( random.nextLong( carModelRepository.count()));
+            CarBrand carBrand = carModel.getCarBrand();
 
-            CarBrand carBrand = carBrandRepository.getCarBrandById( carModel.getCarBrand().getId());
+            SubPartCategory subPartCategory = subPartCategoryRepository.getSubPartCategoryById(random.nextLong( 1,110));
+            MainPartCategory mainPartCategory = subPartCategory.getMainPartCategory();
 
-            SubPartCategory subPartCategory = subPartCategoryRepository.getSubPartCategoryById(random.nextLong( 111,220));
+            int integerPart = random.nextInt(9000) + 10;
+            int fractionalPart = random.nextInt(100);
 
-            if(subPartCategory!=null){
-                System.out.println(subPartCategory.getMainPartCategory().getId());
-                MainPartCategory mainPartCategory = subPartCategory.getMainPartCategory();
-                System.out.println(mainPartCategory.getId());
-                Part part = Part.builder()
-                        .partName(UUID.randomUUID().toString())
-                        .vinNumber(UUID.randomUUID().toString())
-                        .partDescription(UUID.randomUUID().toString())
-/*
-                        .carBrand(carBrand)
-*/
-                        .carModel(carModel)
-/*
-                        .mainPartCategory(mainPartCategory)
-*/
-                        .subPartCategory(subPartCategory)
-                        .build();
+            double randomValue = integerPart + (fractionalPart / 100.0);
 
-                part = partRepository.save(part);
-                if(part == null){
-                    System.out.println("Part not found");
-                }
-            }else {
-                System.out.println("subPartCategory not found");
-            }
+            Part part = Part.builder()
+                    .partName(carBrand.getBrandName() + " " + carModel.getModelName() + " " + subPartCategory.getSubPartCategoryName())
+                    .vinNumber(UUID.randomUUID().toString())
+                    .price(randomValue)
+                    .partDescription(subPartCategory.getSubPartCategoryName() + " for " +
+                            carBrand.getBrandName() + " " + carModel.getModelName() + " of year " + carModel.getYearOfProduction())
+                    .carModel(carModel)
+                    .carBrand(carBrand)
+                    .subPartCategory(subPartCategory)
+                    .mainPartCategory(mainPartCategory)
+                    .build();
 
-
-
+            part = partRepository.save(part);
 
         }
         System.out.println(partRepository.count());
