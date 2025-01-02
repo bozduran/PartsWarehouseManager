@@ -32,7 +32,7 @@ public class CheckoutServiceImpl implements CheckoutService {
 
         //      get order from purchase dto
         Order order = purchase.getOrder();
-
+        order.setStatus("pending");
         //      get order items and add them to the order
         List<OrderItem> orderItems = purchase.getOrderItems();
 

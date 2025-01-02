@@ -12,7 +12,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface PartRepository extends JpaRepository<Part, Long> {
 
     Page<Part> findPartByCarModelId(@Param("carModelId") Long carModelId, Pageable pageable);
-
+    Page<Part> findPartBySubPartCategoryId(@Param("subPartCategoryId") Long subPartCategoryId, Pageable pageable);
     Part findPartById(@Param("partId") Long id);
 
 }

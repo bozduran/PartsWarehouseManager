@@ -2,6 +2,10 @@ package bozntouran.partswarehousemanager.config;
 
 import bozntouran.partswarehousemanager.entities.CarBrand;
 import bozntouran.partswarehousemanager.entities.CarModel;
+import bozntouran.partswarehousemanager.entities.Country;
+import bozntouran.partswarehousemanager.entities.Order;
+import bozntouran.partswarehousemanager.entities.State;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.metamodel.EntityType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +41,10 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 
         disableHttpMethods(CarBrand.class, config, theUnsupportedActions);
         disableHttpMethods(CarModel.class, config, theUnsupportedActions);
+        disableHttpMethods(Country.class, config, theUnsupportedActions);
+        disableHttpMethods(State.class, config, theUnsupportedActions);
+        disableHttpMethods(Order.class, config, theUnsupportedActions);
+
 
         config.getExposureConfiguration()
                 .forDomainType(CarBrand.class)
