@@ -1,6 +1,7 @@
 package bozntouran.partswarehousemanager.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Entity
@@ -19,18 +20,23 @@ public class Address {
     @Column(name = "id")
     private Long id;
 
+    @NotBlank
     @Column(name = "street")
     private String street;
 
+    @NotBlank
     @Column(name = "city")
     private String city;
 
+    @NotBlank
     @Column(name = "state")
     private String state;
 
+    @NotBlank
     @Column(name = "country")
     private String country;
 
+    @NotBlank
     @Column(name = "zip_code")
     private String zipCode;
 

@@ -1,6 +1,8 @@
 package bozntouran.partswarehousemanager.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -25,12 +27,15 @@ public class Order {
     @Column(name = "id")
     private Long id;
 
+    @NotBlank
     @Column(name = "order_tracking_id")
     private String orderTrackingId;
 
+    @Min(value = 0)
     @Column(name = "total_price")
     private BigDecimal totalPrice;
 
+    @Min(value = 1)
     @Column(name = "total_quantity")
     private Short totalQuantity;
 

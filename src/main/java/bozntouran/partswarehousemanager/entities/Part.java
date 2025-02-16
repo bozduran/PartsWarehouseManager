@@ -21,22 +21,17 @@ public class Part {
     @Column(name = "id")
     private Long id;
 
-    @NotNull
     @NotBlank
     @Column(name = "part_name")
     private String partName;
 
-    @NotNull
     @NotBlank
     @Column(name = "part_description")
     private String partDescription;
 
-    @NotNull
     @Column(name = "unit_price")
     private double price;
 
-    @NotNull
-    @NotBlank
     @Column(name = "vin_number")
     private String vinNumber;
 

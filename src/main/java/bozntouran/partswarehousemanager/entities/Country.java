@@ -2,6 +2,7 @@ package bozntouran.partswarehousemanager.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,9 +19,11 @@ public class Country {
     @Column(name = "id")
     private Short id;
 
+    @NotBlank
     @Column(name = "name")
     private String name;
 
+    @NotBlank
     @Column(name = "code")
     private String code;
 

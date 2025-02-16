@@ -30,7 +30,6 @@ public class CarModel {
     @Column(name = "version")
     private Integer version;
 
-    @NotNull
     @NotBlank
     @Column(name = "model_name")
     private String modelName;
@@ -64,7 +63,9 @@ public class CarModel {
 
     public void setCarBrand(CarBrand carBrand) {
         this.carBrand = carBrand;
-        carBrand.getModels().add(this);
+        if (!carBrand.getModels().contains(this)){
+            carBrand.getModels().add(this);
+        }
     }
 
     @Builder.Default

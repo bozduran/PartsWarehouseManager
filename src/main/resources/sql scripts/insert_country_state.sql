@@ -21,3 +21,35 @@ INSERT INTO `state` VALUES
                         (12,'Western Greece / Δυτική Ελλάδα',5),
                         (13,'Western Macedonia / Δυτική Μακεδονία',5),
                         (14,'Mount Athos / Άγιον Όρος',5);
+
+WITH ranked_models AS (
+    SELECT
+        model_name,
+        version,
+        year_of_production,
+        drive,
+        fuel_type,
+        transmission,
+        car_type,
+        car_brand_id,
+        created_date,
+        update_date,
+        ROW_NUMBER() OVER (PARTITION BY model_name ORDER BY update_date DESC) AS model_row_num,
+            ROW_NUMBER() OVER (PARTITION BY car_brand_id ORDER BY update_date DESC) AS brand_row_num
+    FROM car_model
+)
+SELECT
+    model_name,
+    version,
+    year_of_production,
+    drive,
+    fuel_type,
+    transmission,
+    car_type,
+    car_brand_id,
+    created_date,
+    update_date
+FROM ranked_models
+WHERE model_row_num = 1
+   OR brand_row_num <= 5
+ORDER BY car_brand_id, model_name, brand_row_num;

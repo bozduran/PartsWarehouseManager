@@ -2,7 +2,7 @@
 
 
 -- Insert Data into Functions Table
-INSERT INTO Sub_Part_Category (sub_part_category_name, main_part_category_id) VALUES
+INSERT INTO sub_part_category (sub_part_category_name, main_part_category_id) VALUES
 -- Exterior Parts
 ('Hood', 1),
 ('Trunk lid', 1),

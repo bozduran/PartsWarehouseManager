@@ -1,6 +1,6 @@
 
 -- Insert Data into Systems Table
-INSERT INTO Main_Part_Category (main_part_category_name) VALUES
+INSERT INTO main_part_category (main_part_category_name) VALUES
                                            ('Exterior Parts'),
                                            ('Interior Parts'),
                                            ('Engine and Related Components'),

@@ -32,21 +32,20 @@ CREATE TABLE car_model
     CONSTRAINT `fk_category` FOREIGN KEY (`car_brand_id`) REFERENCES `car_brand` (`id`)
 ) ENGINE = InnoDB ;
 
--- Create Systems Table
-CREATE TABLE Main_Part_Category (
+CREATE TABLE main_part_category (
                          id BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                          main_part_category_name VARCHAR(100) NOT NULL
 ) ENGINE = InnoDB ;
 
 -- Create Functions Table
-CREATE TABLE Sub_Part_Category (
+CREATE TABLE sub_part_category (
                            id BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                            sub_part_category_name VARCHAR(100) NOT NULL,
                            main_part_category_id BIGINT(20) NOT NULL,
-                           FOREIGN KEY (main_part_category_id) REFERENCES Main_Part_Category(id)
+                           FOREIGN KEY (main_part_category_id) REFERENCES main_part_category(id)
 ) ENGINE = InnoDB ;
 
-CREATE TABLE Part(
+CREATE TABLE part(
                     id BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                     part_name VARCHAR(100) NOT NULL,
                     version      INT,
@@ -59,21 +58,21 @@ CREATE TABLE Part(
                     car_model_id BIGINT(20) NOT NULL,
                     sub_part_category_id BIGINT(20) NOT NULL,
                     car_brand_id BIGINT(20) NOT NULL,
-                    FOREIGN KEY (main_part_category_id) REFERENCES Main_Part_Category(id),
-                     FOREIGN KEY (sub_part_category_id) REFERENCES Sub_Part_Category(id),
+                    FOREIGN KEY (main_part_category_id) REFERENCES main_part_category(id),
+                     FOREIGN KEY (sub_part_category_id) REFERENCES sub_part_category(id),
                      FOREIGN KEY (car_brand_id) REFERENCES car_brand(id),
                      FOREIGN KEY (car_model_id) REFERENCES car_model(id)
-) ENGINE = InmoDB;
+) ENGINE = InnoDB;
 
 
-CREATE TABLE `country` (
+CREATE TABLE country (
                            `id` SMALLINT UNSIGNED NOT NULL,
                            `code` VARCHAR(2) DEFAULT NULL,
                            `name` VARCHAR(255) DEFAULT NULL,
                            PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `state` (
+CREATE TABLE state (
                          `id` SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
                          `name` VARCHAR(255) DEFAULT NULL,
                          `country_id` SMALLINT UNSIGNED NOT NULL,
@@ -88,15 +87,32 @@ CREATE TABLE customer(
                          id BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                          first_name VARCHAR(100) NOT NULL,
                          last_name VARCHAR(100) NOT NULL,
-                         email VARCHAR(255) NOT NULL,
+                         email VARCHAR(255) NOT NULL UNIQUE,
                          version      INT
-) ENGINE = InmoDB;
+) ENGINE = InnoDB;
 
+CREATE TABLE address(
+                        id BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                        city VARCHAR(255),
+                        country VARCHAR(255),
+                        state VARCHAR(255),
+                        street VARCHAR(255),
+                        zip_code VARCHAR(255)
+) ENGINE = InnoDB;
+
+CREATE TABLE order_item(
+                           id BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                           quantity SMALLINT,
+                           unit_price DECIMAL,
+                           order_id BIGINT(20) NOT NULL,
+                           part_id BIGINT(20) NOT NULL,
+                           FOREIGN KEY (order_id) REFERENCES orders(id)
+) ENGINE = InnoDB;
 
 CREATE TABLE orders(
                        id BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                        order_tracking_id VARCHAR(255),
-                       total_price DECIMAL,
+                       total_price DECIMAL(19,2),
                        total_quantity SMALLINT,
                        order_status VARCHAR(255),
                        version      INT,
@@ -108,22 +124,9 @@ CREATE TABLE orders(
                        FOREIGN KEY (billing_address_id) REFERENCES address(id),
                        FOREIGN KEY (shipping_address_id) REFERENCES address(id),
                        FOREIGN KEY (customer_id) REFERENCES customer(id)
-) ENGINE = InmoDB;
+) ENGINE = InnoDB;
 
-CREATE TABLE order_item(
-                           id BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                           quantity SMALLINT,
-                           unit_price DECIMAL,
-                           order_id BIGINT(20) NOT NULL,
-                           part_id BIGINT(20) NOT NULL,
-                           FOREIGN KEY (order_id) REFERENCES orders(id)
-) ENGINE = InmoDB;
 
-CREATE TABLE address(
-                        id BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                        city VARCHAR(255),
-                        country VARCHAR(255),
-                        state VARCHAR(255),
-                        street VARCHAR(255),
-                        zip_code VARCHAR(255)
-) ENGINE = InmoDB;
+SET FOREIGN_KEY_CHECKS=0;
+DROP TABLE orders ;
+SET FOREIGN_KEY_CHECKS=1;

@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "Sub_Part_Category")
+@Table(name = "sub_part_category")
 @Getter
 @Setter
 @Builder
@@ -30,5 +30,12 @@ public class SubPartCategory {
     @Builder.Default
     @OneToMany(mappedBy = "subPartCategory", cascade = CascadeType.ALL)
     private Set<Part> parts = new HashSet<>();
+
+    public void addMainCategory(MainPartCategory mainPartCategory){
+        this.mainPartCategory = mainPartCategory;
+        if (!mainPartCategory.getSubPartCategories().contains(this)){
+            mainPartCategory.getSubPartCategories().add(this);
+        }
+    }
 
 }

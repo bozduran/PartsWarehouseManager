@@ -8,6 +8,7 @@ import bozntouran.partswarehousemanager.entities.State;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.metamodel.EntityType;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -20,11 +21,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+@Slf4j
 @Configuration
 public class MyDataRestConfig implements RepositoryRestConfigurer {
 
     @Value("${allowed.origins}")
-    private String[] theAllowedOrigins;
+    private String theAllowedOrigins;
 
 
     private EntityManager entityManager;

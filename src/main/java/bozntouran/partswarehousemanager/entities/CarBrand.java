@@ -39,7 +39,6 @@ public class CarBrand {
     @Column(name = "update_date")
     private LocalDateTime updateDate;
 
-    @NotNull
     @NotBlank
     @Column(name = "brand_name")
     private String brandName;

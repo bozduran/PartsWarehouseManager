@@ -27,8 +27,8 @@ public class BootstrapData implements CommandLineRunner {
     @Transactional
     public void run(String... args) throws Exception {
 
-        log.info("Starting bootstrap data");
         if (partRepository.count() == 0) {
+            log.info("Starting bootstrap data");
             loadData();
         }
 
@@ -39,9 +39,15 @@ public class BootstrapData implements CommandLineRunner {
         Random random = new Random();
         random.setSeed(System.currentTimeMillis());
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 600; i++) {
 
-            CarModel carModel = carModelRepository.getCarModelById(random.nextLong(carModelRepository.count()));
+            CarModel carModel = null;
+            while (carModel == null) {
+                carModel = carModelRepository.getCarModelById(random.nextLong(carModelRepository.count()));
+            }
+
+
+
             CarBrand carBrand = carModel.getCarBrand();
 
             SubPartCategory subPartCategory = subPartCategoryRepository.getSubPartCategoryById(random.nextLong(1, 110));

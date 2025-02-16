@@ -6,7 +6,7 @@ import lombok.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "Main_Part_Category")
+@Table(name = "main_part_category")
 @Getter
 @Setter
 @Builder
@@ -23,7 +23,7 @@ public class MainPartCategory {
     private String mainPartCategoryName;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "mainPartCategory")
-    private Set<SubPartCategory> subSystemSet;
+    private Set<SubPartCategory> subPartCategories;
 
 /*
     @Builder.Default
