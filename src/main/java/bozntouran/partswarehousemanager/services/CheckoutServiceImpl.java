@@ -6,7 +6,6 @@ import bozntouran.partswarehousemanager.dto.PurchaseResponse;
 import bozntouran.partswarehousemanager.entities.Customer;
 import bozntouran.partswarehousemanager.entities.Order;
 import bozntouran.partswarehousemanager.entities.OrderItem;
-import bozntouran.partswarehousemanager.repositories.AddressRepository;
 import bozntouran.partswarehousemanager.repositories.CustomerRepository;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
@@ -39,7 +38,7 @@ public class CheckoutServiceImpl implements CheckoutService {
 
         //      get order from purchase dto
         Order order = purchase.getOrder();
-        System.out.println("Total price:"+order.getTotalPrice());
+        System.out.println("Total price:" + order.getTotalPrice());
         order.setStatus("Pending");
         //      get order items and add them to the order
         List<OrderItem> orderItems = purchase.getOrderItems();
@@ -74,11 +73,11 @@ public class CheckoutServiceImpl implements CheckoutService {
         paymentMethodTypes.add("card");
 
         Map<String, Object> params = new HashMap<>();
-        params.put("amount",paymentInfo.getAmount());
-        params.put("currency",paymentInfo.getCurrency());
-        params.put("payment_method_types",paymentMethodTypes);
-        params.put("description","AutoParts shop");
-        params.put("receipt_email",paymentInfo.getEmail());
+        params.put("amount", paymentInfo.getAmount());
+        params.put("currency", paymentInfo.getCurrency());
+        params.put("payment_method_types", paymentMethodTypes);
+        params.put("description", "AutoParts shop");
+        params.put("receipt_email", paymentInfo.getEmail());
 
         return PaymentIntent.create(params);
     }

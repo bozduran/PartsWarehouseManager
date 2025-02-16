@@ -70,7 +70,6 @@ public class BootstrapData implements CommandLineRunner {
                     .mainPartCategory(mainPartCategory)
                     .build();
 
-            part = partRepository.save(part);
 
         }
         System.out.println(partRepository.count());
