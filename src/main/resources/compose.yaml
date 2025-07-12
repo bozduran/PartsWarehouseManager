@@ -1,0 +1,28 @@
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:8
+    platform: linux/amd64
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: warehouseManagerDB
+      MYSQL_USER: warehouseManager
+      MYSQL_PASSWORD: warehouseManager
+    volumes:
+      - /home/just_a_simple_device/init-db:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+  backend:
+    container_name: parts_eshop_server
+    image: parts_eshop:0.0.1-SNAPSHOT
+    platform: linux/amd64
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+  frontend:
+    container_name: angular_sehop_frontend
+    image: my-angular-app:latest
+    platform: linux/amd64
+    ports:
+      - "4200:4200"

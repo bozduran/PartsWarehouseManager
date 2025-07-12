@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>bozntouran</groupId>
-    <artifactId>PartsWarehouseManager</artifactId>
+    <artifactId>parts_eshop</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>PartsWarehouseManager</name>
     <description>PartsWarehouseManager</description>

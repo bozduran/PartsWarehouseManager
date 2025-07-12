@@ -11,7 +11,9 @@ public interface CarBrandService {
     Page<CarBrand> getCarBrands(Long id,
                                 String carBrandName,
                                 String countryOfOrigin,
-                                Integer yearOfFoundation, Integer pageNumber, Integer pageSize);
+                                Integer yearOfFoundation,
+                                Integer pageNumber,
+                                Integer pageSize);
 
     PageRequest pageRequestBuilder(Integer pageNumber, Integer pageSize);
 }

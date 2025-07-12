@@ -1,11 +1,6 @@
 package bozntouran.partswarehousemanager.config;
 
-import bozntouran.partswarehousemanager.entities.CarBrand;
-import bozntouran.partswarehousemanager.entities.CarModel;
-import bozntouran.partswarehousemanager.entities.Country;
-import bozntouran.partswarehousemanager.entities.Order;
-import bozntouran.partswarehousemanager.entities.State;
-
+import bozntouran.partswarehousemanager.entities.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.metamodel.EntityType;
 import lombok.extern.slf4j.Slf4j;

@@ -17,23 +17,23 @@ import java.util.List;
 @Slf4j
 public class OrderHistoryServiceImpl implements OrderHistoryService {
 
+    private final OrderRepository orderRepository;
+    private final int DEFAULT_PAGE = 0;
+    private final int DEFAULT_PAGE_SIZE = 10;
     public OrderHistoryServiceImpl(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }
 
-    private final OrderRepository orderRepository;
-    private final int DEFAULT_PAGE = 0;
-    private final int DEFAULT_PAGE_SIZE = 10;
-
-
     @Override
-    public Page<OrderHistory> getOrderHistoryByEmail(String email, Integer  pageNumber, Integer  pageSize) {
+    public Page<OrderHistory> getOrderHistoryByEmail(String email,
+                                                     Integer pageNumber,
+                                                     Integer pageSize) {
         PageRequest pageRequest = pageRequestBuilder(pageNumber, pageSize);
 
 
-        List<Order> orders = orderRepository.findByCustomerEmailOrderByCreatedDateDesc(email,pageRequest);
+        List<Order> orders = orderRepository.findByCustomerEmailOrderByCreatedDateDesc(email, pageRequest);
         List<OrderHistory> orderHistory = new ArrayList<>();
-        System.out.println("pffffffffffffff"+orders.size());
+
         //      create the pagerequest
 
         //      convert orders to order history

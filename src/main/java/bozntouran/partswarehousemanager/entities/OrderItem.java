@@ -26,7 +26,7 @@ public class OrderItem {
     @Column(name = "quantity")
     private Short quantity;
 
-    @Min(value =0)
+    @Min(value = 0)
     @Column(name = "unit_price")
     private BigDecimal unitPrice;
 

@@ -59,6 +59,9 @@ public class CarModel {
 
     @ManyToOne()
     private CarBrand carBrand;
+    @Builder.Default
+    @OneToMany(mappedBy = "carModel", cascade = CascadeType.ALL)
+    private Set<Part> parts = new HashSet<>();
 
     public void setCarBrand(CarBrand carBrand) {
         this.carBrand = carBrand;
@@ -66,10 +69,6 @@ public class CarModel {
             carBrand.getModels().add(this);
         }
     }
-
-    @Builder.Default
-    @OneToMany(mappedBy = "carModel", cascade = CascadeType.ALL)
-    private Set<Part> parts = new HashSet<>();
 
 
 }

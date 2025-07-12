@@ -27,15 +27,19 @@ public class BootstrapData implements CommandLineRunner {
     @Transactional
     public void run(String... args) throws Exception {
 
-        if (partRepository.count() == 0) {
+        if (partRepository.count() < 1000) {
             log.info("Starting bootstrap data");
-            loadData();
+            createData();
+        } else {
+            log.info("more than 1000 parts");
+
         }
+
 
     }
 
     @Transactional
-    public void loadData() {
+    public void createData() {
         Random random = new Random();
         random.setSeed(System.currentTimeMillis());
 
@@ -43,13 +47,11 @@ public class BootstrapData implements CommandLineRunner {
 
             CarModel carModel = null;
             while (carModel == null) {
-                carModel = carModelRepository.getCarModelById(random.nextLong(carModelRepository.count()));
+                carModel = carModelRepository.getCarModelById(random.nextLong(carModelRepository.count() - 1));
             }
 
 
-
             CarBrand carBrand = carModel.getCarBrand();
-
             SubPartCategory subPartCategory = subPartCategoryRepository.getSubPartCategoryById(random.nextLong(1, 110));
             MainPartCategory mainPartCategory = subPartCategory.getMainPartCategory();
 
@@ -71,6 +73,7 @@ public class BootstrapData implements CommandLineRunner {
                     .build();
 
 
+            partRepository.save(part);
         }
         System.out.println(partRepository.count());
 

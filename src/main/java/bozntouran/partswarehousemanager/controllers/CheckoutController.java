@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class CheckoutController {
 
 
-    private CheckoutService checkoutService;
     private static final String PURCHASE_URL = "/purchase";
+    private CheckoutService checkoutService;
 
     @PostMapping(PURCHASE_URL)
     public PurchaseResponse placeOrder(@RequestBody Purchase purchase) {

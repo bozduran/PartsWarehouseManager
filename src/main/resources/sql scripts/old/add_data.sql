@@ -1,9 +1,8 @@
 
 
 
--- Insert Data into Functions Table
+
 INSERT INTO Sub_System (function_name, main_system_id) VALUES
--- Exterior Parts
 ('Hood', 1),
 ('Trunk lid', 1),
 ('Roof', 1),
@@ -35,7 +34,7 @@ INSERT INTO Sub_System (function_name, main_system_id) VALUES
 ('Wiper blades', 1),
 ('Antenna', 1),
 
--- Interior Parts
+
 ('Instrument cluster', 2),
 ('Center console', 2),
 ('Glove compartment', 2),
@@ -62,7 +61,6 @@ INSERT INTO Sub_System (function_name, main_system_id) VALUES
 ('Air conditioning vents', 2),
 ('Heating controls', 2),
 
--- Engine and Related Components
 ('Engine block', 3),
 ('Cylinder head', 3),
 ('Pistons', 3),
@@ -79,14 +77,12 @@ INSERT INTO Sub_System (function_name, main_system_id) VALUES
 ('Water pump', 3),
 ('Turbocharger/Supercharger', 3),
 
--- Transmission System
 ('Transmission', 4),
 ('Clutch', 4),
 ('Gearbox', 4),
 ('Driveshaft', 4),
 ('Axles', 4),
 
--- Suspension and Steering
 ('Shock absorbers', 5),
 ('Struts', 5),
 ('Springs', 5),
@@ -96,31 +92,26 @@ INSERT INTO Sub_System (function_name, main_system_id) VALUES
 ('Steering knuckle', 5),
 ('Steering rack', 5),
 
--- Brake System
 ('Brake pads', 6),
 ('Brake rotors', 6),
 ('Brake calipers', 6),
 ('Brake lines', 6),
 ('Parking brake cables', 6),
 
--- Exhaust System
 ('Muffler', 7),
 ('Catalytic converter', 7),
 ('Exhaust pipe', 7),
 
--- Electrical System
 ('Battery', 8),
 ('Alternator', 8),
 ('Starter motor', 8),
 ('Fuse box', 8),
 ('Wiring harness', 8),
 
--- Fuel System
 ('Fuel tank', 9),
 ('Fuel pump', 9),
 ('Fuel filter', 9),
 
--- Miscellaneous
 ('Spare tire', 10),
 ('Jack', 10),
 ('Tools', 10),

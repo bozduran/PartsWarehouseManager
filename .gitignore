@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/main/resources/bozntouran-keystore.p12
+/myapp.log
+/myapp.log.2025-02-10.0.gz
+/myapp.log.2025-02-11.0.gz
+/myapp.log.2025-04-28.0.gz
+/myapp.log.2025-05-04.0.gz
